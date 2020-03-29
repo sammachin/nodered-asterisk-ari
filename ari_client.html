@@ -1,0 +1,119 @@
+<script type="text/javascript">
+    RED.nodes.registerType('ari_client',{
+        category: 'asterisk',      
+        color: '#989898',
+        icon: 'font-awesome/fa-asterisk',
+        defaults: {             
+            name: {value:""},
+            server: {value:"", type:"asterisk_ari"},
+            app: {value:""}
+        },
+        outputs:1,              
+        label: function() {     
+            return this.name||"ARI Client";
+        },
+        palletteLabel: "ARI Client"
+    });
+</script>
+
+<script type="text/html" data-template-name="ari_client">
+     <div class="form-row">
+         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+         <input type="text" id="node-input-name" placeholder="Name">
+     </div>
+     <div class="form-row">
+        <label for="node-config-input-server"></i>Asterisk Server</label>
+        <input type="text" id="node-input-server" >
+    </div>
+    <div class="form-row">
+        <label for="node-input-app"><i class="fa fa-tag"></i>ARI Application</label>
+        <input type="text" id="node-input-app" placeholder="default">
+    </div>
+ </script>
+ 
+ 
+ <!-- Next, some simple help text is provided for the node.                   -->
+ <script type="text/html" data-help-name="ari_client">
+    <!-- data-help-name identifies the node type this help is for             -->
+    <!-- This content appears in the Info sidebar when a node is selected     -->
+    <!-- The first <p> is used as the pop-up tool tip when hovering over a    -->
+    <!-- node in the palette.                                                 -->
+    <p>Simple sample input node. Just sends a single message when it starts up.
+    This is not very useful.</p>
+    <p>Outputs an object called <b>msg</b> containing <b>msg.topic</b> and
+    <b>msg.payload</b>. msg.payload is a String.</p>
+ </script>
+
+ <script type="text/javascript">
+    RED.nodes.registerType('ari_playback',{
+        category: 'asterisk',      
+        color: '#FF9966',
+        icon: 'font-awesome/fa-asterisk',
+        defaults: {             
+            name: {value:""},
+            media: {value:""}
+        },
+        inputs:1,
+        outputs:1,              
+        label: function() {     
+            return this.name||"ARI Playback";
+        },
+        palletteLabel: "ARI Playback"
+    });
+</script>
+
+<script type="text/html" data-template-name="ari_playback">
+     <div class="form-row">
+         <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+         <input type="text" id="node-input-name" placeholder="Name">
+     </div>
+    <div class="form-row">
+        <label for="node-input-media"><i class="fa fa-tag"></i>Media</label>
+        <input type="text" id="node-input-media" placeholder="sound:weasels-eaten-phonesys">
+    </div>
+ </script>
+ 
+ 
+ <!-- Next, some simple help text is provided for the node.                   -->
+ <script type="text/html" data-help-name="ari_playback">
+    <!-- data-help-name identifies the node type this help is for             -->
+    <!-- This content appears in the Info sidebar when a node is selected     -->
+    <!-- The first <p> is used as the pop-up tool tip when hovering over a    -->
+    <!-- node in the palette.                                                 -->
+    <p>Simple sample input node. Just sends a single message when it starts up.
+    This is not very useful.</p>
+    <p>Outputs an object called <b>msg</b> containing <b>msg.topic</b> and
+    <b>msg.payload</b>. msg.payload is a String.</p>
+ </script>
+
+
+
+ <script type="text/javascript">
+    RED.nodes.registerType('ari_hangup',{
+        category: 'asterisk',      
+        color: '#FF6633',
+        icon: 'font-awesome/fa-asterisk',
+        defaults: {             
+            name: {value:""}
+        },
+        inputs:1,
+        label: function() {     
+            return this.name||"ARI Hangup";
+        },
+        palletteLabel: "ARI Playback"
+    });
+</script>
+
+<script type="text/html" data-template-name="ari_hangup">
+     <div class="form-row">
+         <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+         <input type="text" id="node-input-name" placeholder="Name">
+     </div>
+
+ </script>
+ 
+ 
+ <!-- Next, some simple help text is provided for the node.                   -->
+ <script type="text/html" data-help-name="ari_hangup">
+    <p> Hangup The Channel</p>
+ </script>

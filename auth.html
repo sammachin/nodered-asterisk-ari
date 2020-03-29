@@ -1,0 +1,39 @@
+
+
+<script type="text/javascript">
+    RED.nodes.registerType('asterisk_ari',{
+        category: 'config',
+        credentials: {
+          url: {type:"text"},
+          username: {type:"text"},
+          password: {type:"text"}
+        },
+        label: function() {
+            return this.url;
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="asterisk_ari">
+  <div class="form-row"></
+      <label for="node-config-input-url">URL</label>
+      <input type="text" id="node-config-input-url" placeholder="http://localhost:8088">
+  </div>
+  
+  <div class="form-row">
+      <label for="node-config-input-username">Username</label>
+      <input type="text" id="node-config-input-username" placeholder="asterisk">
+  </div>
+
+  <div class="form-row">
+    <label for="node-config-input-password">Password</label>
+    <input type="text" id="node-config-input-password" placeholder="asterisk">
+</div>
+</script>
+
+<script type="text/x-red" data-help-name="asterisk_ari">
+   <p>Creates a new ARI Server Credentials </p>
+   <h3>Details</h3>
+   <p>Enter your url, username and password</p>
+</script>
+
