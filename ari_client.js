@@ -16,9 +16,9 @@ module.exports = function(RED) {
                     connections[id] =client
                     clientLoaded(client, app, node,id)
                 });
-                connections[id]._id = id;
-                connections[id]._nodeCount = 0;
-                connections[id]._nodeCount += 1;
+                //connections[id]._id = id;
+                //connections[id]._nodeCount = 0;
+                //connections[id]._nodeCount += 1;
                 return connections[id];
             },
             getconn : function(id){
