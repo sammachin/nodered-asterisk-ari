@@ -8,7 +8,8 @@
             server: {value:"", type:"asterisk_ari"},
             app: {value:""}
         },
-        outputs:1,              
+        outputs: 2,
+        outputLabels: ["call", "dtmf"],        
         label: function() {     
             return this.name||"ARI Client";
         },
@@ -141,46 +142,4 @@
          <input type="text" id="node-input-name" placeholder="Name">
      </div>
 
- </script>
- 
- 
- <!-- Next, some simple help text is provided for the node.                   -->
- <script type="text/html" data-help-name="ari_answer">
-    <p> Answer a Channel</p>
- </script>
-
- <script type="text/javascript">
-    RED.nodes.registerType('ari_bridge',{
-        category: 'asterisk',      
-        color: '#FF3366',
-        icon: 'font-awesome/fa-asterisk',
-        defaults: {             
-            name: {value:""},
-            server: {value:"", type:"asterisk_ari"},
-        },
-        inputs:1,
-        label: function() {     
-            return this.name||"Bridge";
-        },
-        palletteLabel: "Bridge"
-    });
-</script>
-
-<script type="text/html" data-template-name="ari_bridge">
-     <div class="form-row">
-         <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
-         <input type="text" id="node-input-name" placeholder="Name">
-     </div>
-     <div class="form-row">
-        <label for="node-config-input-server"></i>Asterisk Server</label>
-        <input type="text" id="node-input-server" >
-    </div>
-    
-
- </script>
- 
- 
- <!-- Next, some simple help text is provided for the node.                   -->
- <script type="text/html" data-help-name="ari_bridge">
-    <p> Creates a Bridge that accepts channels</p>
  </script>
