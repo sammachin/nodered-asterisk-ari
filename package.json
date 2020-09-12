@@ -1,6 +1,6 @@
 {
   "name": "nodered-contrib-asterisk-ari",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Package for Controlling Asterisk via ARI",
   "main": "main.js",
   "scripts": {

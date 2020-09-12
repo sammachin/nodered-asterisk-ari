@@ -6,14 +6,15 @@
         defaults: {             
             name: {value:""},
             server: {value:"", type:"asterisk_ari"},
-            app: {value:""}
+            sip_user: {value:""},
+            sip_password: {value:""}
         },
         outputs: 2,
         outputLabels: ["call", "dtmf"],        
         label: function() {     
-            return this.name||"ARI Client";
+            return this.name||"Endpoint";
         },
-        palletteLabel: "ARI Client"
+        palletteLabel: "Endpoint"
     });
 </script>
 
@@ -27,8 +28,12 @@
         <input type="text" id="node-input-server" >
     </div>
     <div class="form-row">
-        <label for="node-input-app"><i class="fa fa-tag"></i>ARI Application</label>
-        <input type="text" id="node-input-app" placeholder="default">
+        <label for="node-input-sip_user"><i class="fa fa-tag"></i>SIP User</label>
+        <input type="text" id="node-input-sip_user" placeholder="100">
+    </div>
+    <div class="form-row">
+        <label for="node-input-sip_password"><i class="fa fa-tag"></i>SIP Password</label>
+        <input type="text" id="node-input-sip_password" placeholder="xxx">
     </div>
  </script>
  
@@ -141,5 +146,58 @@
          <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
          <input type="text" id="node-input-name" placeholder="Name">
      </div>
+
+ </script>
+
+ <script type="text/javascript">
+    RED.nodes.registerType('ari_bridgedial',{
+        category: 'asterisk',      
+        color: '#339933',
+        icon: 'font-awesome/fa-asterisk',
+        defaults: {             
+            name: {value:""},
+            destination: {value:""},
+            callerId: {},
+            connected_event : {value: false},
+            ended_event : {value: false},
+            dtmf_event : {value: false}
+
+        },
+        inputs:1,
+        outputs: 2,
+        outputLabels: ["a party", "b party"], 
+        label: function() {     
+            return this.name||"Bridge Dial";
+        },
+        palletteLabel: "Bridge Dial"
+    });
+</script>
+
+<script type="text/html" data-template-name="ari_bridgedial">
+     <div class="form-row">
+         <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+         <input type="text" id="node-input-name" placeholder="Name">
+     </div>
+     <div class="form-row">
+        <label for="node-input-destination"><i class="fa fa-tag"></i>Destination</label>
+        <input type="text" id="node-input-destination" placeholder="PJSIP/1000">
+    </div>
+    <div class="form-row">
+        <label for="node-input-callerId"><i class="fa fa-tag"></i>Caller ID</label>
+        <input type="text" id="node-input-callerId" placeholder="2000">
+    </div>
+    <h2> Events to Emit </h2>
+    <div class="form-row">
+        <label for="node-input-connected_event"><i class="fa fa-tag"></i>Connected</label>
+        <input type="checkbox" id="node-input-connected_event" >
+    </div>
+    <div class="form-row">
+        <label for="node-input-ended_event"><i class="fa fa-tag"></i>Ended</label>
+        <input type="checkbox" id="node-input-ended_event" >
+    </div>
+    <div class="form-row">
+        <label for="node-input-destination"><i class="fa fa-tag"></i>DTMF</label>
+        <input type="checkbox" id="node-input-ended_event" >
+    </div>
 
  </script>
